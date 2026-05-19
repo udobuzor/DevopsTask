@@ -150,6 +150,14 @@ Edited the MySQL config file to enable the plugin and change the bind-address:
 sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 ```
 
+Re-ran the ALTER USER command successfully after restart:
+
+```sql
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
+```
+
+![ALTER USER success](images/step3-alter-user.png)
+
 Changed:
 ```ini
 bind-address = 0.0.0.0
@@ -167,14 +175,6 @@ sudo systemctl status mysql.service
 **Result:** Active (running)
 
 ![MySQL restart and status](images/step3-mysql-restart.png)
-
-Re-ran the ALTER USER command successfully after restart:
-
-```sql
-ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'PassWord.1';
-```
-
-![ALTER USER success](images/step3-alter-user.png)
 
 ---
 

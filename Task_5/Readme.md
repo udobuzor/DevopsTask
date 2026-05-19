@@ -260,30 +260,4 @@ SHOW DATABASES;
 | **Database** | example_database |
 | **Remote User** | first_user |
 
-**The MySQL client instance successfully connected to the MySQL server instance over the AWS VPC private network using port 3306 — demonstrating a fully working Client-Server Architecture.** 🚀
-
----
-
-## 📁 Image Reference Guide
-
-| Image File | Description |
-|------------|-------------|
-| `step0-curl-bing.png` | curl -Iv www.bing.com connectivity test |
-| `step0-ec2-instances.png` | EC2 mysql-server and mysql-client running |
-| `step1-apt-update.png` | apt update on mysql-server |
-| `step1-mysql-install.png` | apt install mysql-server |
-| `step1-mysql-status.png` | systemctl status mysql.service |
-| `step1-mysql-console.png` | sudo mysql console login |
-| `step2-create-db-user.png` | CREATE DATABASE and CREATE USER |
-| `step2-grant-privileges.png` | GRANT ALL privileges |
-| `step2-user-login.png` | first_user login and SHOW DATABASES |
-| `step3-secure-install.png` | mysql_secure_installation |
-| `step3-bind-address.png` | mysqld.cnf bind-address = 0.0.0.0 |
-| `step3-mysql-restart.png` | systemctl restart and status mysql |
-| `step3-alter-user.png` | ALTER USER root native password |
-| `step4-security-group.png` | Inbound rule port 3306 added |
-| `step5-apt-update.png` | apt update on mysql-client |
-| `step5-apt-upgrade.png` | apt upgrade on mysql-client |
-| `step5-mysql-client-install.png` | apt install mysql-client |
-| `step6-remote-connect.png` | mysql -u first_user -h 172.31.27.6 -p |
-| `step6-show-databases.png` | SHOW DATABASES from client |
+**The MySQL client instance successfully connected to the MySQL server instance over the AWS VPC private network using port 3306 — demonstrating a fully working Client-Server Architecture.**

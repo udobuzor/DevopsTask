@@ -188,7 +188,7 @@ To allow the MySQL client to connect to the MySQL server on port 3306, added an 
 
 | Type | Protocol | Port range | Source |
 |------|----------|------------|--------|
-| MYSQL/Aurora | TCP | 3306 | 172.31.19.100/16 |
+| MYSQL/Aurora | TCP | 3306 | 172.31.0.0/16 |
 
 This allows all instances within the VPC to connect to MySQL on port 3306.
 

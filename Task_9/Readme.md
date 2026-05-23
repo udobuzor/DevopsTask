@@ -464,38 +464,6 @@ Publish Over SSH → NFS /mnt/apps → Web Servers serve latest code
 | Artifact Deployment | Publish Over SSH | 390.vb | Transferring |
 | Deployment Target | NFS Server /mnt/apps | — | Receiving files |
 
-**Every code push to GitHub now automatically builds and deploys to the NFS Server — the Tooling Website updates without any manual intervention.** 🚀
+**Every code push to GitHub now automatically builds and deploys to the NFS Server — the Tooling Website updates without any manual intervention.** 
 
 ---
-
-## Image Reference Guide
-
-| Image | Description |
-|-------|-------------|
-| `p9-img01.png` | SSH login to Jenkins EC2 (Ubuntu 24.04) |
-| `p9-img02.png` | sudo apt update output |
-| `p9-img03.png` | OpenJDK 21 installation |
-| `p9-img04.png` | java -version confirmation |
-| `p9-img05.png` | Jenkins GPG key download (jenkins.io-2026.key) |
-| `p9-img06.png` | Jenkins apt repository added |
-| `p9-img07.png` | Jenkins 2.555.2 installation |
-| `p9-img08.png` | systemctl status jenkins — active running |
-| `p9-img09.png` | Unlock Jenkins browser page |
-| `p9-img10.png` | Suggested plugins installation progress |
-| `p9-img11.png` | Instance Configuration — Jenkins URL |
-| `p9-img12.png` | Jenkins is ready screen |
-| `p9-img13.png` | Jenkins welcome dashboard |
-| `p9-img14.png` | GitHub Webhook configuration form |
-| `p9-img15.png` | GitHub Webhook created successfully |
-| `p9-img16.png` | New Item — tooling_github Freestyle project |
-| `p9-img17.png` | SCM config — GitHub repo URL and credentials |
-| `p9-img18.png` | Build #1 Console Output — Finished: SUCCESS |
-| `p9-img19.png` | Build Triggers + Archive artifacts config |
-| `p9-img20.png` | Build history — builds #1 and #2 both SUCCESS |
-| `p9-img21.png` | Build #2 archive directory listing |
-| `p9-img22.png` | Publish Over SSH plugin search |
-| `p9-img23.png` | SSH config — Connection timed out error |
-| `p9-img24.png` | SSH config — Success after Security Group fix |
-| `p9-img25.png` | Send build artifacts over SSH job config |
-| `p9-img26.png` | cat /mnt/apps/README.md — file on NFS server |
-| `p9-img27.png` | AWS EC2 console — all 6 instances running |

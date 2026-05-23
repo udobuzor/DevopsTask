@@ -412,17 +412,7 @@ This cron job runs **every 12 hours**, attempts to renew the certificate if it i
 
 ---
 
-### Issue 2 — Certbot Only Detected `www.oddshare.com`, Not Root Domain
-
-| | |
-|---|---|
-| **Symptom** | When running `sudo certbot --nginx`, only `www.oddshare.com` appeared in the domain list — not the bare `oddshare.com`. |
-| **Root Cause** | The Nginx `server_name` directive was set to `www.oddshare.com` only. Certbot reads `server_name` from the Nginx config to determine which domains to certify. |
-| **Fix** | The certificate was issued for `www.oddshare.com` which is sufficient for the project. To also cover the bare domain, `server_name oddshare.com www.oddshare.com;` would need to be set in the config before running Certbot. |
-
----
-
-### Issue 3 — HTTP Site Working But HTTPS Not Yet (Interim State)
+### Issue 2 — HTTP Site Working But HTTPS Not Yet (Interim State)
 
 | | |
 |---|---|

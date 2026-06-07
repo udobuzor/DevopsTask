@@ -205,7 +205,7 @@ Created `playbooks/common.yml` — the first Ansible playbook, designed to run c
 ```yaml
 ---
 - name: update web, nfs
-  hosts: webservers, nfs, db
+  hosts: webservers, nfs
   remote_user: ec2-user
   become: yes
   become_user: root
@@ -338,16 +338,6 @@ ansible-playbook -i inventory/dev.yml playbooks/common.yml
 
 ![Ansible playbook run output](images/p11-step10-playbook-run.png)
 
-**PLAY RECAP:**
-
-| Host | ok | changed | unreachable | failed |
-|------|----|---------|-------------|--------|
-| 172.31.65.225 | 2 | 0 | 0 | 0 |
-| 172.31.67.53 | 3 | 1 | 0 | 0 |
-| 172.31.69.47 | 2 | 1 | 0 | 0 |
-| 172.31.76.18 | 2 | 0 | 0 | 0 |
-| 172.31.79.222 | 3 | 2 | 0 | 0 |
-
 All 5 servers reached successfully with **0 failures**
 
 ---
@@ -363,29 +353,4 @@ wireshark --version
 
 **Result:** Wireshark **2.6.2 (v2.6.2)** installed successfully on the RHEL server
 
-![Wireshark version confirmed on web server](images/p11-step11-wireshark.png)
-
----
-
-| Component | Details |
-|-----------|---------|
-| **Control Node** | Jenkins-Ansible EC2 — Ubuntu 24.04, `172.31.72.207` |
-| **Elastic IP** | `3.219.69.161` (stable webhook endpoint) |
-| **Ansible Version** | core 2.16.3 |
-| **Servers Managed** | 5 (2 webservers, 1 NFS, 1 DB, 1 LB) |
-| **Playbook** | `common.yml` — installs Wireshark on all servers |
-| **Trigger** | GitHub push to `main` → Jenkins webhook → build archived |
-
----
-
-## Issues Encountered & Resolutions
-
-| Issue | Root Cause | Fix |
-|-------|-----------|-----|
-| `Could not open a connection to your authentication agent` | SSH agent not started before `ssh-add` | Run `eval $(ssh-agent -s)` first, then `ssh-add` |
-| `Permission denied (publickey)` when SSHing to server | Missing `-i` flag or wrong key file | Use `ssh -i ~/Downloads/udo.pem ubuntu@<IP>` explicitly |
-| All hosts `UNREACHABLE` — Connection timed out | AWS Security Group missing inbound SSH rule from Jenkins-Ansible | Added SSH rule for `172.31.0.0/16` in shared Security Group |
-| Host key checking prompted during playbook run | New servers not in `known_hosts`, Ansible paused mid-run | Set `host_key_checking = False` in `ansible.cfg` |
-| `config file = None` after Ansible install | No default `ansible.cfg` created during installation | Created `/etc/ansible/ansible.cfg` manually (addressed in Project 12) |
-| Jenkins build only showed `README.md` in archive | Webhook triggered before inventory and playbook files were merged | Merged PR to `main`, Jenkins re-triggered and archived all files correctly |
-| GitHub webhook IP changed after server restart | EC2 public IP changes on every stop/start | Allocated and associated Elastic IP `3.219.69.161` to the instance |
+![Wireshark version confirmed on web server](images/p11-step11-wire-shark.png)

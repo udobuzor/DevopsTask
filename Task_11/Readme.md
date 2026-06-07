@@ -204,7 +204,7 @@ Created `playbooks/common.yml` — the first Ansible playbook, designed to run c
 
 ```yaml
 ---
-- name: update web, nfs and db servers
+- name: update web, nfs
   hosts: webservers, nfs, db
   remote_user: ec2-user
   become: yes
@@ -215,8 +215,8 @@ Created `playbooks/common.yml` — the first Ansible playbook, designed to run c
         name: wireshark
         state: latest
 
-- name: update LB server
-  hosts: lb
+- name: update LB server, db servers
+  hosts: lb, db
   remote_user: ubuntu
   become: yes
   become_user: root
@@ -366,12 +366,6 @@ wireshark --version
 ![Wireshark version confirmed on web server](images/p11-step11-wireshark.png)
 
 ---
-
-## Final Result — Ansible Automation Fully Operational
-
-The common.yml playbook successfully ran across all infrastructure servers using the updated playbook structure (webservers + nfs via yum, db + lb via apt):
-
-![Updated common.yml with db and lb grouped](images/p11-final-updated-playbook.png)
 
 | Component | Details |
 |-----------|---------|

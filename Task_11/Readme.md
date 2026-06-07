@@ -3,7 +3,7 @@
 
 ---
 
-## 🏆 What I Gained From This Project
+## What I Gained From This Project
 
 After completing this project, I:
 
@@ -17,7 +17,7 @@ After completing this project, I:
 
 ---
 
-## 📋 Project Overview
+## Project Overview
 
 This document details the setup of Ansible Configuration Management on AWS EC2, automating the configuration of servers from Projects 7–10. A Jenkins-Ansible server acts as both a CI/CD server and an Ansible control node, using a GitHub webhook to trigger automated builds and artifact archiving.
 
@@ -63,7 +63,7 @@ Ansible and all required Python dependencies were installed, including `ansible-
 ansible --version
 ```
 
-**Result:** Ansible core **2.16.3** installed successfully ✅
+**Result:** Ansible core **2.16.3** installed successfully
 
 ```
 ansible [core 2.16.3]
@@ -93,7 +93,7 @@ To avoid reconfiguring the GitHub webhook every time the server restarts (which 
 
 ![Elastic IP successfully associated](images/p11-step2-eip-success.png)
 
-**Result:** Elastic IP `3.219.69.161` permanently associated with Jenkins-Ansible ✅
+**Result:** Elastic IP `3.219.69.161` permanently associated with Jenkins-Ansible
 
 This means the GitHub webhook URL stays the same regardless of server restarts:
 ```
@@ -119,7 +119,7 @@ cd ansible-config-mgt
 git checkout -b feature/prj-11-ansible-config
 ```
 
-**Result:** Switched to new branch `feature/prj-11-ansible-config` ✅
+**Result:** Switched to new branch `feature/prj-11-ansible-config`
 
 ![Git clone and checkout](images/p11-step3-git-clone.png)
 
@@ -254,7 +254,7 @@ git push origin feature/prj-11-ansible-config
 Opened a Pull Request on GitHub from `feature/prj-11-ansible-config` → `main`:
 - **Title:** Add ansible inventory and common playbook
 - **Description:** updated main branch
-- **Status:** ✅ Able to merge — no conflicts
+- **Status:** Able to merge — no conflicts
 
 ![GitHub Pull Request creation](images/p11-step8-pr.png)
 
@@ -306,7 +306,7 @@ ls /var/lib/jenkins/jobs/ansible-config-mgt/builds/3/archive
 
 ![Build 3 archive — full structure](images/p11-step9-build3.png)
 
-**Result:** Jenkins successfully archived all repository files on every GitHub push ✅
+**Result:** Jenkins successfully archived all repository files on every GitHub push
 
 ---
 
@@ -348,7 +348,7 @@ ansible-playbook -i inventory/dev.yml playbooks/common.yml
 | 172.31.76.18 | 2 | 0 | 0 | 0 |
 | 172.31.79.222 | 3 | 2 | 0 | 0 |
 
-All 5 servers reached successfully with **0 failures** ✅
+All 5 servers reached successfully with **0 failures**
 
 ---
 
@@ -361,13 +361,13 @@ ssh -i Downloads/udo.pem ec2-user@44.192.114.138
 wireshark --version
 ```
 
-**Result:** Wireshark **2.6.2 (v2.6.2)** installed successfully on the RHEL server ✅
+**Result:** Wireshark **2.6.2 (v2.6.2)** installed successfully on the RHEL server
 
 ![Wireshark version confirmed on web server](images/p11-step11-wireshark.png)
 
 ---
 
-## ✅ Final Result — Ansible Automation Fully Operational
+## Final Result — Ansible Automation Fully Operational
 
 The common.yml playbook successfully ran across all infrastructure servers using the updated playbook structure (webservers + nfs via yum, db + lb via apt):
 
@@ -384,7 +384,7 @@ The common.yml playbook successfully ran across all infrastructure servers using
 
 ---
 
-## 📋 Issues Encountered & Resolutions
+## Issues Encountered & Resolutions
 
 | Issue | Root Cause | Fix |
 |-------|-----------|-----|
